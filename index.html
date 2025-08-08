@@ -1,21 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
-  <title>NCA CTF</title>
-  <link href='https://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
+  <title>NCA CTF - Hacker Terminal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #33ff33;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 18px;
+      padding: 20px;
+      margin: 0;
+    }
 
+    .info {
+      margin-bottom: 20px;
+      white-space: pre-line;
+    }
+
+    .blink {
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      from, to {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .button {
+      background-color: transparent;
+      color: #33ff33;
+      border: 1px solid #33ff33;
+      padding: 10px 20px;
+      display: inline-block;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #003300;
+    }
+
+    .password {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .granted {
+      color: #ff3333;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .terminal-output {
+      border: 1px solid #33ff33;
+      padding: 10px;
+      margin-top: 20px;
+      min-height: 100px;
+      background-color: #010101;
+    }
+  </style>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<div class="info">
-	<p>more research you can get </p>
-	<p class="hidden">Press any button to get the flag<span class="blink">_</span></p>
-</div>
-<div class="password hidden"></div>
-<div class="button start">START HACKING!</div>
-<div class="blink granted hidden">ACCESS FAILED >.<!</div>
-<div class=" button rerun hidden">RERUN</div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+
+  <div class="info">
+    <p>Initializing system...</p>
+    <p class="hidden">Press any button to get the flag<span class="blink">_</span></p>
+  </div>
+
+  <div class="password hidden terminal-output" id="terminal"></div>
+
+  <div class="button start">START HACKING!</div>
+  <div class="blink granted hidden">ACCESS FAILED >.<!</div>
+  <div class="button rerun hidden">RERUN</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  <script>
+    function typeEffect(element, text, speed = 50, callback) {
+      let i = 0;
+      function typing() {
+        if (i < text.length) {
+          element.append(text.charAt(i));
+          i++;
+          setTimeout(typing, speed);
+        } else if (callback) {
+          callback();
+        }
+      }
+      typing();
+    }
+
+    $(".start").click(function () {
+      $(".info p").hide();
+      $(".info p.hidden").removeClass("hidden");
+      $(".password").removeClass("hidden").html("");
+
+      const output = `> Connecting to target...\n> Bypassing firewalls...\n> Injecting payload...\n> Accessing flag...\n\nFLAG{Y0U_AR3_1337_H4CK3R}`;
+      typeEffect($("#terminal"), output);
+      
+      $(".start").hide();
+      $(".rerun").removeClass("hidden");
+    });
+
+    $(".rerun").click(function () {
+      location.reload();
+    });
+  </script>
 
 </body>
 </html>
+
