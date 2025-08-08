@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>NCA CTF - Hacker Terminal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <style>
     body {
       background-color: #000;
@@ -14,32 +14,28 @@
       margin: 0;
       text-align: center;
     }
-
     .logo {
       width: 200px;
       margin-bottom: 20px;
       border-radius: 8px;
       border: 2px solid #33ff33;
     }
-
     .info {
       margin-bottom: 20px;
       white-space: pre-line;
     }
-
     .blink {
       animation: blink 1s step-end infinite;
     }
-
     @keyframes blink {
-      from, to {
+      from,
+      to {
         opacity: 0;
       }
       50% {
         opacity: 1;
       }
     }
-
     .terminal-output {
       border: 1px solid #33ff33;
       padding: 10px;
@@ -48,13 +44,17 @@
       background-color: #010101;
       font-weight: bold;
       text-align: left;
+      white-space: pre-wrap; /* preserve spaces and line breaks */
     }
   </style>
 </head>
 <body>
-
   <!-- Replaced Logo -->
-  <img src="https://wallpapercave.com/wp/wp5577405.jpg" alt="CTF Logo" class="logo">
+  <img
+    src="https://wallpapercave.com/wp/wp5577405.jpg"
+    alt="CTF Logo"
+    class="logo"
+  />
 
   <div class="info">
     <p>Initializing system...</p>
@@ -82,14 +82,14 @@
     }
 
     $(document).ready(function () {
-      const output = `> Happy Krishna Janmastami! 
-> BUT NCA{it_is_wrong_flag} 😁 
-> May Lord Krishna bless you with sharp mind, fast hands, and lots of flags.`;
+      const output = `> Happy Krishna Janmastami!   \n>  May Lord Krishna bless you with sharp mind, fast hands, and lots of flags 
+                               
+                                                     \n>BUT NCA{it_is_wrong_flag} 😁 .`; 
       typeEffect($("#terminal"), output);
-    }); 
+    });
   </script>
-
 </body>
 </html>
+
 
 
