@@ -14,12 +14,6 @@
       margin: 0;
       text-align: center;
     }
-    .logo {
-      width: 200px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      border: 2px solid #33ff33;
-    }
     .info {
       margin-bottom: 20px;
       white-space: pre-line;
@@ -49,13 +43,6 @@
   </style>
 </head>
 <body>
-  <!-- Logo -->
-  <img
-    src="https://wallpapercave.com/wp/wp5577405.jpg"
-    alt="CTF Logo"
-    class="logo"
-  />
-
   <div class="info">
     <p>Initializing system...</p>
   </div>
@@ -81,7 +68,7 @@
     }
 
     $(document).ready(function () {
-      const output = `> Happy Krishna Janmastami!  May Lord Krishna bless you with sharp mind, fast hands, and lots of flags.
+      const output = `> Welcome to PTN CTF Hacker Terminal.
 > PTN{BUT_IT_IS_WRONG_FLAG} 😁 .`; 
       
       typeEffect($("#terminal"), output);
