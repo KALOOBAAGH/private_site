@@ -33,6 +33,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px;
+      justify-items: center; /* centers items inside grid cells */
     }
 
     .item {
@@ -42,6 +43,8 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.2s, box-shadow 0.2s;
       text-align: center;
+      width: 100%;
+      max-width: 250px; /* optional: limit max width for uniformity */
     }
 
     .item:hover {
@@ -93,6 +96,12 @@
       background-color: #1e3a8a;
       color: white;
     }
+
+    @media (max-width: 600px) {
+      .shop {
+        grid-template-columns: 1fr; /* single column on small screens */
+      }
+    }
   </style>
 </head>
 <body>
@@ -135,7 +144,7 @@
         </div>
       </div>
 
-      <!-- ITEM 4 (FIXED + VISIBLE) -->
+      <!-- ITEM 4 -->
       <div class="item">
         <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.DtamAZGSvUAtmfXJnopPWQHaEK%3Fpid%3DApi&f=1&ipt=9934db62bbed8a5f44a08c3c0506a38e0df57b35b30745050fba54e0b68faef2&ipo=images" alt="Laptop 4">
         <div class="item-content">
